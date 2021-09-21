@@ -1,0 +1,53 @@
+<div class="container">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Orders</mat-card-title>
+      <mat-card-subtitle>
+        <button mat-stroked-button routerLink="new">Add Order</button>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-progress-bar [ngClass]="{ visible: loading$ | async }" mode="indeterminate"></mat-progress-bar>
+      <table mat-table [dataSource]="order$ | async">
+
+        <!-- Field Columns -->
+        <!-- TODO: Configure / add required form fields -->
+        <ng-container matColumnDef="orderNumber">
+          <th mat-header-cell *matHeaderCellDef> OrderNumber </th>
+          <td mat-cell *matCellDef="let entity"> {{ entity.orderNumber }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="clientId">
+          <th mat-header-cell *matHeaderCellDef> ClientId </th>
+          <td mat-cell *matCellDef="let entity"> {{ entity.clientId }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let entity"> {{ entity.quantity }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef> Total </th>
+          <td mat-cell *matCellDef="let entity"> {{ entity.total }} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let entity">
+            <button mat-stroked-button [routerLink]="['./', entity.id]">Edit</button>
+            <button mat-stroked-button (click)="delete(entity)">Delete</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

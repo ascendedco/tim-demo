@@ -3,13 +3,17 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Architecture</mat-toolbar>
-    <!--<mat-nav-list>
-      <mat-list-item routerLink="users">
+    <mat-toolbar>Tim's Demo</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="clients">
         <mat-icon matListIcon>folder</mat-icon>
-        <h3 matLine>Users</h3>
+        <h3 matLine>Clients</h3>
       </mat-list-item>
-    </mat-nav-list>-->
+      <mat-list-item routerLink="orders">
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Orders</h3>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
@@ -27,3 +31,13 @@
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<!--
+
+What should this component be named? order
+? Which fields should be displayed on the component table? orderNumber,clientId,quantity,total
+? Which form components should be used for creating and updating? orderNumber|input,clientId|input,quantity|input,total|input
+? Which types of components should be generated? desktop
+? Which fields should be displayed on the component list? orderNumber,clientId,quantity,total
+
+-->
