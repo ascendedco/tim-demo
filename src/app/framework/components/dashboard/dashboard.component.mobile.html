@@ -1,0 +1,23 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="'dialog'"
+      [mode]="'over'"
+      [opened]="false">
+    <!--<mat-nav-list>
+      <mat-list-item routerLink="users">
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Users</h3>
+      </mat-list-item>
+    </mat-nav-list>-->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Architecture Mobile</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
